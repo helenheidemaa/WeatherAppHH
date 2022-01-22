@@ -1,0 +1,59 @@
+body {
+  background-image: url(../img/sky1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+h1 {
+  font-size: 28px;
+  left: center;
+  font-family: "Poppins", sans-serif;
+  margin: auto 0;
+  padding: 2px 5px 2px 0px;
+}
+h2 {
+  font-size: 24px;
+  left: center;
+  font-family: "Poppins", sans-serif;
+  margin: auto 0;
+  padding: 2px 5px 2px 0px;
+}
+.weather-description {
+  font-style: italic;
+}
+
+h5 {
+  font-style: italic;
+  font-size: 12px;
+  padding: 20px 5px 5px;
+}
+.biginfo {
+  font-size: 28px;
+  padding: 5px;
+}
+.fa-snowflake {
+  font-size: 24px;
+  padding: 5px;
+}
+
+.btn-info {
+  margin: 5px 0px 20px;
+  color: white;
+}
+
+.data {
+  padding: 5px;
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 7px;
+  margin: 30px;
+  max-width: 900px;
+}
+
+.units {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: white;
+}
