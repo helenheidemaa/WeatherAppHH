@@ -1,28 +1,22 @@
      // Show currenttime/date
-     function formatDate(date){
-              
+     function formatDate(date){      
       let hours = date.getHours();
       if (hours <10){
           hours =`0${hours}`;
       } 
-
       let minutes = date.getMinutes();
          if (minutes <10){
           minutes =`0${minutes}`;
       } 
-      
       let days = [
           "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       let day = days[date.getDay()];
       return `${day} ${hours}:${minutes}`
        }
-
         let currentTime = document.querySelector("h1");
         let currentDate = new Date();
         currentTime.innerHTML = formatDate(currentDate)
    ;
-
-
 //Show realtime data
       function showWeatherdata(response) {
         document.querySelector("#city-name").innerHTML = response.data.name;
@@ -30,9 +24,11 @@
         document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
         document.querySelector("#windSpeed").innerHTML=Math.round(response.data.wind.speed);
         document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-          }
-
-      // Search data from API
+        document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );    
+        ctemperature =  response.data.main.temp;     
+}
+ // Search data from API
 
       function search (city){
       let apiKey = "f4e2e7d1dd4f9ad7bc54617b19362453";
@@ -74,24 +70,28 @@
       button.addEventListener("click", getCurrentPosition);
 
 // Convert Celsiuse and Fahrenheit
+    function changeFahrenheit(event) {
+      event.preventDefault();
+      let temperatureElement = document.querySelector("#temperatureFirst");
+      celsiusClick.classList.remove("active");
+      fahrenheitClick.classList.add("active");
+      let ftemperature= (ctemperature * 9)/5+32;
+      temperatureElement.innerHTML = Math.round(ftemperature);
+  }
     function changeCelsiuse(event) {
-        event.preventDefault();
-        let celsius = document.querySelector("#c-link");
-        let temperatureC = document.querySelector("#temperatureFirst")    
-  
-        temperatureC.innerHTML = `8`;
-    
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperatureFirst");
+    celsiusClick.classList.add("active");
+    fahrenheitClick.classList.remove("active");
+    temperatureElement.innerHTML=Math.round(ctemperature);
+          
     }
+    let ctemperature = null;
+
     let celsiusClick= document.querySelector("#c-link");
     celsiusClick.addEventListener("click", changeCelsiuse);
 
-     function changeFahrenheit(event) {
-        event.preventDefault();
-        let fahrenheit = document.querySelector("#f-link");
-        let temperatureF = document.querySelector("#temperatureFirst")    
-         temperatureF.innerHTML = `68`;
-      
-    }
+
     let fahrenheitClick= document.querySelector("#f-link");
     fahrenheitClick.addEventListener("click", changeFahrenheit);
 

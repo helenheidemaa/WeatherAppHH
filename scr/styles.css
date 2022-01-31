@@ -67,6 +67,15 @@ li {
   font-weight: 400;
 }
 
+.weather-temperature .active {
+  color: black;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
 .btn-info {
   margin: 5px 0px 20px;
   color: white;
