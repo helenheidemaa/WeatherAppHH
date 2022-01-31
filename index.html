@@ -26,10 +26,12 @@
   </head>
   <body>
     <div class="container">
-      <div class="data">
+      <div class="weather-app">
+        <div class="overview">
         <h1></h1>
         <h2 class= "city-name" id="city-name"></h2>
         <h2 class = "weather-description" id="weather-description" ></h2>
+        </div>
         <form id="search-form">
           <div class="mb-3">
             <input
@@ -38,6 +40,7 @@
               placeholder="Search by location"
               autofocus="on"
               id="search-text-input"
+              autocomplete="off"
             />
           </div>
 <div class="row">
@@ -58,26 +61,23 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <i class="fas fa-snowflake"></i>
-            <span class="biginfo" id="temperatureFirst"> -4 </span>
+            <div class="clearfix weather-temperature">
+            <img src="" alt="sunny" id="icon" class="float-left" />
+            <div class="float-left">
+            <strong id="temperatureFirst"> </strong>
             <span class="units">
-              <a href="#" id="c-link">°C</a> |
+              <a href="#" id="c-link" class="">°C</a> |
               <a href="#" id="f-link">F</a>
             </span>
-          </div>
-          <div class="col-6">
-            <div class="biginfo" 
-            >
-            Wind: 
-            <span id = "windSpeed"> </span>m/s
-            
             </div>
-            <div class="biginfo" 
-            >
-              Humidity: 
-              <span id = "humidity"> </span>%
-              </div>
           </div>
+          </div>
+           <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind speed: <span id="windSpeed"> </span> m/s</li>
+              </ul>
+            </div>
         </div>
         <h5>6 days forecast</h5>
         <div class="row">
