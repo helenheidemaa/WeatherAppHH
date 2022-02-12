@@ -1,5 +1,5 @@
-     // Show currenttime/date
-     function formatDate(date){      
+// Show currenttime/date
+function formatDate(date){      
       let hours = date.getHours();
       if (hours <10){
           hours =`0${hours}`;
@@ -9,14 +9,47 @@
           minutes =`0${minutes}`;
       } 
       let days = [
-          "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          "Sunday", 
+          "Monday", 
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"];
       let day = days[date.getDay()];
-      return `${day} ${hours}:${minutes}`
+return `${day} ${hours}:${minutes}`
        }
         let currentTime = document.querySelector("h1");
         let currentDate = new Date();
         currentTime.innerHTML = formatDate(currentDate)
    ;
+
+//Displays forecast information
+function displayForecast(){
+let forecastElement = document.querySelector("#forecast");
+let forecastHTML=`<div class="row">`;
+let days = ["Thu", "Fri","Sat","Sun","Mon","Tue"]
+days.forEach(function(day) {
+
+forecastHTML= forecastHTML + `
+          <div class="col-2">
+          <div class="weather-forecast-date">${day}</div>
+           <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  alt=""
+                  width="42"
+                />
+          <div class="weather-forecast-temp">
+            <span class="weather-forecast-temp-max">18</span>
+            <span class="weather-forecast-temp-min">12</span> 
+          </div>
+      </div>`;
+})
+forecastHTML= forecastHTML+` </div>`
+forecastElement.innerHTML=forecastHTML;
+console.log(forecastElement);
+}
+
 //Show realtime data
       function showWeatherdata(response) {
         document.querySelector("#city-name").innerHTML = response.data.name;
@@ -28,8 +61,8 @@
   );    
         ctemperature =  response.data.main.temp;     
 }
- // Search data from API
-
+ 
+// Search data from API
       function search (city){
       let apiKey = "f4e2e7d1dd4f9ad7bc54617b19362453";
       let units = "metric";
@@ -38,8 +71,9 @@
       console.log(apiUrl);
       axios.get(apiUrl).then(showWeatherdata)  
     }
-            
-      function handleSubmit(event) {
+
+//Handeling user submitted city name          
+function handleSubmit(event) {
         event.preventDefault();
         let city = document.querySelector("#search-text-input").value;    
         search(city);
@@ -47,9 +81,8 @@
      
       let form = document.querySelector("#search-form");
       form.addEventListener("submit", handleSubmit);
-  
 
-  //Show current position temperature
+//Show current position temperature
         function showPosition(position) {
         let latitude = position.coords.latitude;
         console.log(position.coords.latitude);
@@ -69,7 +102,7 @@
       let button = document.querySelector("#current-location");
       button.addEventListener("click", getCurrentPosition);
 
-// Convert Celsiuse and Fahrenheit
+//Convert Celsiuse and Fahrenheit
     function changeFahrenheit(event) {
       event.preventDefault();
       let temperatureElement = document.querySelector("#temperatureFirst");
@@ -87,6 +120,7 @@
           
     }
     let ctemperature = null;
+    
 
     let celsiusClick= document.querySelector("#c-link");
     celsiusClick.addEventListener("click", changeCelsiuse);
@@ -95,4 +129,8 @@
     let fahrenheitClick= document.querySelector("#f-link");
     fahrenheitClick.addEventListener("click", changeFahrenheit);
 
+    //Show default city information
     search("Tokyo");
+   
+    displayForecast();
+
