@@ -16,6 +16,7 @@ function formatDate(date){
           "Thursday",
           "Friday",
           "Saturday"];
+
       let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`
        }
@@ -23,27 +24,30 @@ return `${day} ${hours}:${minutes}`
         let currentDate = new Date();
         currentTime.innerHTML = formatDate(currentDate)
    ;
+//Forecast day name to real day name
+function formatDay(date){
+}
+
 
 //Displays forecast information
 function displayForecast(response){
-  console.log(response.data.daily)
+  let forcast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML=`<div class="row">`;
-  let days = ["Thu", "Fri","Sat","Sun","Mon","Tue"]
-  days.forEach(function(day) 
-  {
+  
+  forcast.forEach(function(forecastDay) {
 
   forecastHTML= forecastHTML + `
           <div class="col-2">
-          <div class="weather-forecast-date">${day}</div>
+          <div class="weather-forecast-date">${forecastDay.dt}</div>
            <img
-                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                   alt=""
                   width="42"
                 />
           <div class="weather-forecast-temp">
-            <span class="weather-forecast-temp-max">18</span>
-            <span class="weather-forecast-temp-min">12</span> 
+            <span class="weather-forecast-temp-max">${forecastDay.temp.max}</span>
+            <span class="weather-forecast-temp-min">${forecastDay.temp.min}</span> 
           </div>
       </div>`;
 })
