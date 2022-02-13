@@ -25,7 +25,7 @@ return `${day} ${hours}:${minutes}`
         currentTime.innerHTML = formatDate(currentDate)
    ;
 
-   //Forecast day name to real day name
+//Forecast day name to real day name
 function formatDay(timestamp){
   let date = new Date (timestamp * 1000);
   let day = date.getDay();
@@ -158,7 +158,7 @@ function changeCelsiuse(event) {
     let fahrenheitClick= document.querySelector("#f-link");
     fahrenheitClick.addEventListener("click", changeFahrenheit);
 
-    //Show default city information
+//Show default city information
     
 search("Tokyo");
    
