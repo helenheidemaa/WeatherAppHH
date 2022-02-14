@@ -134,29 +134,31 @@ function getCurrentPosition() {
       button.addEventListener("click", getCurrentPosition);
 
 //Convert Celsiuse and Fahrenheit
-function changeFahrenheit(event) {
-      event.preventDefault();
-      let temperatureElement = document.querySelector("#temperatureFirst");
-      celsiusClick.classList.remove("active");
-      fahrenheitClick.classList.add("active");
-      let ftemperature= (ctemperature * 9)/5+32;
-      temperatureElement.innerHTML = Math.round(ftemperature);
-  }
-function changeCelsiuse(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperatureFirst");
-    celsiusClick.classList.add("active");
-    fahrenheitClick.classList.remove("active");
-    temperatureElement.innerHTML=Math.round(ctemperature);
+//function changeFahrenheit(event) {
+  //    event.preventDefault();
+    //  let temperatureElement = document.querySelector("#temperatureFirst");
+      //celsiusClick.classList.remove("active");
+      //fahrenheitClick.classList.add("active");
+      //let ftemperature= (ctemperature * 9)/5+32;
+      //temperatureElement.innerHTML = Math.round(ftemperature);
+ // }
+//function changeCelsiuse(event) {
+    //event.preventDefault();
+    //let temperatureElement = document.querySelector("#temperatureFirst");
+    //celsiusClick.classList.add("active");
+    //fahrenheitClick.classList.remove("active");
+    //temperatureElement.innerHTML=Math.round(ctemperature);
           
-    }
-    let ctemperature = null;
+    //}
     
-    let celsiusClick= document.querySelector("#c-link");
-    celsiusClick.addEventListener("click", changeCelsiuse);
+    
+    //let celsiusClick= document.querySelector("#c-link");
+    //celsiusClick.addEventListener("click", changeCelsiuse);
 
-    let fahrenheitClick= document.querySelector("#f-link");
-    fahrenheitClick.addEventListener("click", changeFahrenheit);
+    //let fahrenheitClick= document.querySelector("#f-link");
+    //fahrenheitClick.addEventListener("click", changeFahrenheit);
+
+let ctemperature = null;
 
 //Show default city information
     
